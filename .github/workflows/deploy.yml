@@ -16,5 +16,5 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
-            cd /var/www/html
+            cd /var/www/html/tugas_akhir_PT_Berani
             git pull origin main
