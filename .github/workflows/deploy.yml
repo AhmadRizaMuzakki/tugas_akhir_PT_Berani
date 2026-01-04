@@ -19,6 +19,10 @@ jobs:
             # Tambahkan baris ini dulu
             git config --global --add safe.directory /var/www/html/tugas_akhir_PT_Berani
             
-            # Baru jalankan perintah deploy
             cd /var/www/html/tugas_akhir_PT_Berani
-            git pull origin main
+            # Ambil data terbaru dari GitHub tanpa menggabungkan (merge) dulu
+            git fetch origin main
+            
+            # PAKSA server untuk mereset semua file agar persis sama dengan GitHub
+            # PERINGATAN: Ini akan menghapus edit manual yang pernah kamu lakukan di server
+            git reset --hard origin/main
