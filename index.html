@@ -3,74 +3,308 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kesehatan Mental</title>
+  <title>Kesehatan Mental - PT Berani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f9fc;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-attachment: fixed;
       color: #333;
-    }
-    header {
-      background: #4e73df;
-      padding: 20px;
-      color: #fff;
-      text-align: center;
-    }
-    .hero {
-      padding: 80px 20px;
-      text-align: center;
-    }
-    .hero h1 {
-      margin: 0 0 20px;
-      font-size: 36px;
-    }
-    .hero p {
-      max-width: 600px;
-      margin: auto;
-      font-size: 18px;
       line-height: 1.6;
+      overflow-x: hidden;
     }
-    .cta-btn {
-      margin-top: 30px;
-      display: inline-block;
-      padding: 12px 24px;
-      background: #4e73df;
+
+    /* Animated Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px 40px;
+      color: #333;
+      text-align: center;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    header h2 {
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .hero {
+      padding: 120px 20px 100px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      margin: 0 auto 30px;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
       color: #fff;
+      max-width: 900px;
+      line-height: 1.2;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      font-size: clamp(16px, 2.5vw, 20px);
+      line-height: 1.8;
+      color: rgba(255,255,255,0.95);
+      text-shadow: 0 1px 10px rgba(0,0,0,0.1);
+    }
+
+    .cta-btn {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 16px 40px;
+      background: #fff;
+      color: #667eea;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
+
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(102, 126, 234, 0.1);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .cta-btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
     .cta-btn:hover {
-      background: #3c5cc5;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
     }
+
+    .cta-btn:active {
+      transform: translateY(-1px);
+    }
+
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
+
     .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
       text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.3);
     }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .card:hover::before {
+      left: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .card-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 25px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover .card-icon {
+      transform: rotate(5deg) scale(1.1);
+      box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+    }
+
+    .card h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #333;
+      letter-spacing: -0.5px;
+    }
+
+    .card p {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.7;
+    }
+
     footer {
       text-align: center;
-      padding: 20px;
-      margin-top: 30px;
-      background: #eee;
+      padding: 40px 20px;
+      margin-top: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       font-size: 14px;
+      color: #666;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      header h2 {
+        font-size: 24px;
+      }
+
+      .hero {
+        padding: 80px 20px 60px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        padding: 60px 20px;
+        gap: 25px;
+      }
+
+      .card {
+        padding: 30px 25px;
+      }
+
+      .cta-btn {
+        padding: 14px 32px;
+        font-size: 16px;
+      }
+    }
+
+    /* Scroll Animation */
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      animation: slideIn 0.6s ease-out backwards;
+    }
+
+    .card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .card:nth-child(3) {
+      animation-delay: 0.3s;
     }
   </style>
 </head>
 <body>
   <header>
-    <h2>Kesehatan Mental</h2>
+    <h2>🧠 Kesehatan Mental</h2>
   </header>
 
   <section class="hero">
@@ -84,21 +318,24 @@
 
   <section class="features" id="mulai">
     <div class="card">
+      <div class="card-icon">📚</div>
       <h3>Edukasi</h3>
-      <p>Pelajari dasar-dasar kesehatan mental dengan mudah.</p>
+      <p>Pelajari dasar-dasar kesehatan mental dengan mudah dan memahami pentingnya menjaga kesehatan mental Anda.</p>
     </div>
     <div class="card">
+      <div class="card-icon">🔍</div>
       <h3>Skrining</h3>
-      <p>Cek kondisi mental Anda dengan beberapa pertanyaan sederhana.</p>
+      <p>Cek kondisi mental Anda dengan beberapa pertanyaan sederhana untuk membantu mengenali kondisi Anda.</p>
     </div>
     <div class="card">
+      <div class="card-icon">🤝</div>
       <h3>Bantuan</h3>
-      <p>Dapatkan kontak layanan profesional ketika Anda membutuhkan.</p>
+      <p>Dapatkan kontak layanan profesional ketika Anda membutuhkan dukungan dan bantuan yang tepat.</p>
     </div>
   </section>
 
   <footer>
-    © 2025 Kesehatan Mental — Dibuat sederhana untuk membantu. PT Berani.
+    <p>© 2025 Kesehatan Mental — Dibuat sederhana untuk membantu. PT Berani.</p>
   </footer>
 </body>
 </html>
