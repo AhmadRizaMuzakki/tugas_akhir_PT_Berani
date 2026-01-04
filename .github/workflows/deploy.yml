@@ -16,5 +16,9 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
+            # Tambahkan baris ini dulu
+            git config --global --add safe.directory /var/www/html/tugas_akhir_PT_Berani
+            
+            # Baru jalankan perintah deploy
             cd /var/www/html/tugas_akhir_PT_Berani
             git pull origin main
