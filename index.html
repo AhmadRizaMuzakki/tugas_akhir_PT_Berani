@@ -67,7 +67,7 @@
     }
 
     .hero {
-      padding: 120px 20px 100px;
+      padding: 120px 20px 60px;
       text-align: center;
       position: relative;
       z-index: 1;
@@ -105,8 +105,22 @@
       text-shadow: 0 1px 10px rgba(0,0,0,0.1);
     }
 
+    .hero .highlight {
+      background: rgba(255,255,255,0.18);
+      padding: 18px 26px;
+      border-radius: 16px;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(76,74,114,0.09);
+      margin: 24px auto 0;
+      display: inline-block;
+      max-width: 670px;
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
     .cta-btn {
-      margin-top: 20px;
+      margin-top: 28px;
       display: inline-block;
       padding: 16px 40px;
       background: #fff;
@@ -226,6 +240,105 @@
       line-height: 1.7;
     }
 
+    .artikel-section {
+      padding: 60px 18px 0 18px;
+      max-width: 1050px;
+      margin: 0 auto;
+      z-index: 2;
+      position: relative;
+    }
+    .artikel-section h2 {
+      color: #432b77;
+      font-weight: 700;
+      margin-bottom: 28px;
+      text-align: center;
+      font-size: 30px;
+      letter-spacing: -0.7px;
+    }
+    .artikel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
+      gap: 28px;
+    }
+    .artikel-card {
+      background: rgba(255,255,255,0.93);
+      border-radius: 16px;
+      padding: 32px 26px 24px 26px;
+      box-shadow: 0 7px 27px rgba(122, 116, 210, 0.12);
+      transition: all .25s cubic-bezier(0.33, 1, 0.68, 1);
+      border: 1px solid #eee;
+    }
+    .artikel-card:hover {
+      transform: translateY(-7px) scale(1.025);
+      box-shadow: 0 15px 43px rgba(127,116,234,0.18);
+    }
+    .artikel-card h4 {
+      color: #764ba2;
+      font-size: 21px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .artikel-card p {
+      color: #474759;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    .artikel-card a {
+      color: #667eea;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .testimoni-section {
+      margin: 72px 0 0 0;
+      padding: 35px 0 20px 0;
+      background: rgba(255,255,255,0.72);
+      border-top: 1px solid #ede8f4;
+      border-bottom: 1px solid #e1d8ef;
+      box-shadow: 0 2px 22px rgba(102, 126, 234, 0.04);
+      position: relative;
+      z-index: 1;
+    }
+    .testimoni-section h2 {
+      color: #5b4296;
+      font-size: 28px;
+      margin-bottom: 25px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: -0.5px;
+    }
+    .testimoni-list {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      gap: 26px;
+      padding: 0 18px;
+    }
+    .testimoni-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 21px rgba(143,134,236,0.10);
+      padding: 28px 22px 22px 22px;
+      border: 1px solid #f3eafc;
+      font-size: 16px;
+      color: #474759;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .testimoni-card .author {
+      font-weight: 600;
+      color: #432b77;
+      margin-top: 14px;
+      font-size: 15px;
+      letter-spacing: 0.2px;
+    }
+    .testimoni-card .kampus {
+      font-size: 14px;
+      color: #8672be;
+    }
+
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -244,6 +357,17 @@
     }
 
     /* Responsive Design */
+    @media (max-width: 900px) {
+      .artikel-grid, .testimoni-list {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding-bottom: 22px;
+      }
+      .features {
+        padding: 60px 10px;
+      }
+    }
     @media (max-width: 768px) {
       header {
         padding: 15px 20px;
@@ -254,22 +378,25 @@
       }
 
       .hero {
-        padding: 80px 20px 60px;
+        padding: 80px 20px 40px 20px;
       }
 
       .features {
         grid-template-columns: 1fr;
-        padding: 60px 20px;
-        gap: 25px;
+        padding: 48px 6px;
+        gap: 24px;
       }
 
       .card {
-        padding: 30px 25px;
+        padding: 30px 18px;
       }
 
       .cta-btn {
         padding: 14px 32px;
         font-size: 16px;
+      }
+      .artikel-section {
+        padding: 44px 6px 0 6px;
       }
     }
 
@@ -300,6 +427,13 @@
     .card:nth-child(3) {
       animation-delay: 0.3s;
     }
+    .card:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .card:nth-child(5) {
+      animation-delay: 0.5s;
+    }
   </style>
 </head>
 <body>
@@ -313,6 +447,10 @@
       Platform sederhana untuk membantu Anda memahami kondisi kesehatan mental,
       meningkatkan kesadaran diri, serta memberikan resources yang bermanfaat.
     </p>
+    <div class="highlight">
+      <strong>Kenali stres, cemas, burnout, dan cara menghadapinya.</strong><br>
+      Temukan tips, artikel, serta skrining yang sesuai kebutuhan kamu secara gratis. Kesehatan mental adalah hak setiap mahasiswa!
+    </div>
     <a href="#mulai" class="cta-btn">Mulai Sekarang</a>
   </section>
 
@@ -331,6 +469,78 @@
       <div class="card-icon">🤝</div>
       <h3>Bantuan</h3>
       <p>Dapatkan kontak layanan profesional ketika Anda membutuhkan dukungan dan bantuan yang tepat.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📝</div>
+      <h3>Tes & Self-Check</h3>
+      <p>Lakukan tes skala stres, kecemasan, dan depresi untuk memahami kondisi psikologis Anda secara mandiri dan rahasia.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌱</div>
+      <h3>Tips Sehari-hari</h3>
+      <p>Dapatkan saran kegiatan ringan, mindfulness, serta kebiasaan sehat yang mudah diterapkan dalam rutinitas kuliah.</p>
+    </div>
+  </section>
+
+  <section class="artikel-section">
+    <h2>Artikel Pilihan</h2>
+    <div class="artikel-grid">
+      <div class="artikel-card">
+        <h4>Apa Itu Kesehatan Mental?</h4>
+        <p>Kesehatan mental adalah kondisi sejahtera di mana seorang individu menyadari potensi diri, mampu mengelola tekanan hidup, bekerja secara produktif, dan berkontribusi pada lingkungan.</p>
+        <a href="#">Baca Selengkapnya →</a>
+      </div>
+      <div class="artikel-card">
+        <h4>Panduan Mengelola Stres Akademik</h4>
+        <p>Stres karena tugas akhir dan skripsi memang nyata. Temukan teknik coping, tips manajemen waktu, serta cara menjaga pikiran tetap sehat selama masa pengerjaan skripsi.</p>
+        <a href="#">Baca Selengkapnya →</a>
+      </div>
+      <div class="artikel-card">
+        <h4>Cara Mengenal Burnout</h4>
+        <p>Burnout berbeda dengan stres biasa. Pelajari tanda-tanda, pencegahan, dan langkah pemulihan jika Anda mengalami kelelahan psikis yang berlebihan.</p>
+        <a href="#">Baca Selengkapnya →</a>
+      </div>
+      <div class="artikel-card">
+        <h4>Membongkar Mitos Kesehatan Mental</h4>
+        <p>Masih banyak mitos yang beredar seputar kesehatan mental. Simak klarifikasi mitos-mitos umum agar Anda tidak salah paham dan semakin peduli pada diri sendiri.</p>
+        <a href="#">Baca Selengkapnya →</a>
+      </div>
+      <div class="artikel-card">
+        <h4>Sumber Bantuan Kesehatan Mental</h4>
+        <p>Tak perlu ragu mencari dukungan jika merasa butuh. Temukan daftar layanan konselor kampus, psikolog, dan hotline profesional yang dapat Anda hubungi.</p>
+        <a href="#">Baca Selengkapnya →</a>
+      </div>
+      <div class="artikel-card">
+        <h4>Latihan Mindfulness Singkat</h4>
+        <p>Mindfulness dapat membantu mengurangi kecemasan dan meningkatkan konsentrasi. Coba teknik pernapasan dan latihan singkat yang bisa dilakukan di sela aktivitas kuliah.</p>
+        <a href="#">Baca Selengkapnya →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimoni-section">
+    <h2>Testimoni Mahasiswa</h2>
+    <div class="testimoni-list">
+      <div class="testimoni-card">
+        <div>Platform ini membantu saya mengenal stres dan mencari bantuan saat mulai kewalahan dengan tugas akhir.</div>
+        <div class="author">Andini</div>
+        <div class="kampus">UNS</div>
+      </div>
+      <div class="testimoni-card">
+        <div>Artikel dan tips hariannya bermanfaat banget. Saya juga merasa tidak sendirian setelah membaca cerita-cerita di sini.</div>
+        <div class="author">Rifqi</div>
+        <div class="kampus">UI</div>
+      </div>
+      <div class="testimoni-card">
+        <div>Menu skrining sangat membantu saya mengenali tanda burnout lebih cepat dan berani konsultasi ke psikolog kampus.</div>
+        <div class="author">Melisa</div>
+        <div class="kampus">Unpad</div>
+      </div>
+      <div class="testimoni-card">
+        <div>Fitur cek mandiri dan edukasi kesehatan mentalnya mudah dipahami, cocok untuk mahasiswa tingkat akhir!</div>
+        <div class="author">Bagus</div>
+        <div class="kampus">ITS</div>
+      </div>
     </div>
   </section>
 
